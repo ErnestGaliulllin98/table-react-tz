@@ -1,0 +1,60 @@
+.person__address {
+  overflow: hidden;
+  max-height: 0px;
+}
+
+.person__address.active {
+  overflow: hidden;
+  max-height: 800px;
+  border: 1px solid silver;
+  padding: 35px;
+  line-height: 35px;
+}
+
+.table-list__item {
+  font-size: 18px;
+}
+
+.person__data__item {
+  display: inline-block;
+  padding: 30px 20px;
+  overflow: hidden;
+  border: 1px solid silver;
+  border-right: none;
+  margin-bottom: -6px;
+  background-color: rgb(250, 250, 250);
+
+  transition: all 0.4s ease;
+}
+
+.person__data__item:nth-child(1) {
+  width: 40px;
+}
+
+.person__data__item:nth-child(2) {
+  width: 120px;
+}
+
+.person__data__item:nth-child(3) {
+  width: 120px;
+}
+
+.person__data__item:nth-child(4) {
+  width: 220px;
+}
+
+.person__data__item:nth-child(5) {
+  width: 150px;
+  border-right: 1px solid silver;
+}
+
+.person__data.active * {
+  background-color: steelblue;
+  color: white;
+  border-color: steelblue;
+}
+.person__data:hover * {
+  background-color: steelblue;
+  color: white;
+  border-color: steelblue;
+}

@@ -1,0 +1,18 @@
+.TableSearch {
+  display: inline-block;
+
+  border: 1px solid silver;
+  border-radius: 3px;
+  background-color: #fff;
+  padding: 10px;
+  font-size: 18px;
+  outline: none;
+  width: 300px;
+  margin-bottom: 20px;
+
+  margin-left: 459px;
+}
+
+.SearchStyleTwo {
+  margin-left: 534px;
+}
