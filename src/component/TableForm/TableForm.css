@@ -1,0 +1,132 @@
+.table-form__button {
+  font-size: 18px;
+  border: 1px solid silver;
+  padding: 10px 20px;
+  border-radius: 3px;
+  outline: none;
+  background-color: #fff;
+  margin-bottom: 20px;
+
+  transition: all 0.4s ease;
+}
+.table-form__button:hover {
+  cursor: pointer;
+  background-color: steelblue;
+  border-color: steelblue;
+  color: white;
+}
+
+.table-form {
+  display: none;
+  /* position: relative; */
+  /* min-height: 362px; */
+
+  border: 1px solid silver;
+  padding: 20px;
+  border-radius: 3px;
+  margin: 20px 0px;
+}
+.table-form.active {
+  display: block;
+}
+.table-form__block--first {
+  display: flex;
+}
+.table-form__block--second {
+  position: relative;
+}
+.table-form__block--second p {
+  color: red;
+  font-size: 14px;
+}
+.table-form__input {
+  border: 1px solid silver;
+  padding: 10px;
+  border-radius: 3px;
+  margin: 10px 0px;
+  margin-right: 10px;
+}
+.table-form__input.id {
+  width: 35px;
+  -moz-appearance: textfield;
+}
+.table-form__input.id::-webkit-inner-spin-button {
+  display: none;
+}
+.table-form__input.firstname {
+  width: 110px;
+}
+.table-form__input.lastname {
+  width: 110px;
+}
+.table-form__input.email {
+  width: 150px;
+}
+.table-form__input.phone {
+  width: 150px;
+}
+.table-form__input.phone::-webkit-inner-spin-button {
+  display: none;
+}
+.table-form__textarea {
+  width: 600px;
+  height: 90px;
+  resize: none;
+  margin: 5px 0;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid silver;
+  border-radius: 3px;
+}
+.table-form__block--first__input p {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.table-form__input__block--second__button {
+  position: absolute;
+  top: 78px;
+  left: 668px;
+  border: 1px solid silver;
+  padding: 20px 30px;
+  border-radius: 3px;
+}
+.table-form__block--second__title {
+  display: block;
+}
+
+.form-control.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+/* Copy Past code Starting */
+.form-control.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+.form-control.success input {
+  border-color: #2ecc71;
+}
+
+.form-control.error input {
+  border-color: #e74c3c;
+}
+
+.form-control i {
+  visibility: hidden;
+  position: absolute;
+  top: 40px;
+  right: 10px;
+}
+
+.form-control.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+  color: #e74c3c;
+  visibility: visible;
+}

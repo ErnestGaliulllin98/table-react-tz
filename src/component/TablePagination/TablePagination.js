@@ -1,23 +1,29 @@
-import React, {useState} from 'react'
-import {changeBoolean, useActive} from '../../customHooks'
-
+import React from 'react'
+import {isCurrentPage} from './functions.pagination'
 import './TablePagination.css'
 
-const TablePagination = () => {
-  const [type, setType] = useState(false)
-  const tablePaginationStyle = useActive(type, 'table-pagination__item')
-  const onChange = () => setType(changeBoolean)
+const TablePagination = ({
+  personPerPage,
+  totalPersons,
+  paginate,
+  currentPage,
+}) => {
+  const pageNumbers = []
+  for (let i = 1; i <= Math.ceil(totalPersons / personPerPage); i++) {
+    pageNumbers.push(i)
+  }
   return (
     <ul className="table-pagination">
-      <li className={tablePaginationStyle} onClick={onChange}>
-        0
-      </li>
-      <li className="table-pagination__item" onClick={onChange}>
-        1
-      </li>
-      <li className="table-pagination__item" onClick={onChange}>
-        2
-      </li>
+      {pageNumbers.map(number => {
+        return (
+          <li
+            key={number}
+            className={isCurrentPage(currentPage, number)}
+            onClick={() => paginate(number)}>
+            {number}
+          </li>
+        )
+      })}
     </ul>
   )
 }

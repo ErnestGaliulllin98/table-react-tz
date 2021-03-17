@@ -1,32 +1,52 @@
-import React from 'react'
-
+import React, {useState} from 'react'
 import './TableHeader.css'
 
-const TableHeader = () => {
-  // const headerNames = ['id', 'firstName', 'lastName', 'email', 'phone']
-  // const headerArrow = []
-  // headerArrow[0] = isSort === 'idAscending' ? '⬆' : '⬇'
-  // headerArrow[1] = isSort === 'firstNameAscending' ? '⬆' : '⬇'
-  // headerArrow[2] = isSort === 'lastNameAscending' ? '⬆' : '⬇'
-  // headerArrow[3] = isSort === 'emailAscending' ? '⬆' : '⬇'
-  // headerArrow[4] = isSort === 'phoneAscending' ? '⬆' : '⬇'
+const TableHeader = ({onSort, sort, sortField}) => {
+  const useClick = (initialValue = '') => {
+    const [value] = useState(initialValue)
+    const onClick = event => onSort(event.target.value)
+    return {
+      value,
+      onClick,
+    }
+  }
 
-  // let i = 0
-  // const HeaderColumns = headerNames.map(el => {
-  //   return (
-  //     <div key={el} onClick={() => onColumnCLick(el)}>
-  //       {el} {headerArrow[i++]}
-  //     </div>
-  //   )
-  // })
+  const buttonID = useClick('id')
+  const buttonFirstName = useClick('firstName')
+  const buttonLastName = useClick('lastName')
+  const buttonEmail = useClick('email')
+  const buttonPhone = useClick('phone')
+
+  const arrow =
+    sort === 'asc' ? (
+      <i className="fas fa-arrow-up"></i>
+    ) : (
+      <i className="fas fa-arrow-down"></i>
+    )
 
   return (
     <div className="table-header">
-      <div className="table-header__item">id</div>
-      <div className="table-header__item">firstName</div>
-      <div className="table-header__item">lastName</div>
-      <div className="table-header__item">email</div>
-      <div className="table-header__item">phone</div>
+      <div className="header__btn id">
+        <input {...buttonID} type="button" />
+        {sortField === 'id' ? arrow : null}
+      </div>
+      <div className="header__btn firtsname">
+        <input
+          {...buttonFirstName}
+          className="header__btn first-name"
+          type="button"
+        />
+        {sortField === 'firstName' ? arrow : null}
+      </div>
+      {/* <button {...buttonLastName} className="header__btn last-name">
+        LAST NAME {sortField === 'lastName' ? arrow : null}
+      </button>
+      <button {...buttonEmail} className="header__btn email">
+        EMAIL {sortField === 'email' ? arrow : null}
+      </button>
+      <button {...buttonPhone} className="header__btn phone">
+        PHONE {sortField === 'phone' ? arrow : null}
+      </button> */}
     </div>
   )
 }

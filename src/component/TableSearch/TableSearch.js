@@ -1,13 +1,13 @@
 import React from 'react'
-
 import './TableSearch.css'
 
-const TableSearch = ({onSearchChange, addShow}) => {
-  let style = 'TableSearch'
-  if (addShow) style += ' SearchStyleTwo'
-
+const TableSearch = ({inputSearch}) => {
   return (
-    <input placeholder="Search" className={style} onChange={onSearchChange} />
+    <input
+      className="table__search"
+      placeholder="Search"
+      {...inputSearch.bind}
+    />
   )
 }
 

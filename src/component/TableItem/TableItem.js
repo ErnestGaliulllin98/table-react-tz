@@ -1,39 +1,40 @@
-import React, {useState} from 'react'
-import {changeBoolean, useActive} from '../../customHooks'
+import React, {useReducer} from 'react'
 import './TableItem.css'
 
+function useToggle(initialValue = false) {
+  return useReducer(state => !state, initialValue)
+}
+
 function TableItem({person}) {
-  const [type, setType] = useState(false)
-
-  const personDataStyle = useActive(type, 'person__data')
-  const personAddressStyle = useActive(type, 'person__address')
-
-  const onChange = () => setType(changeBoolean)
-
+  const [isActive, toggleIsActive] = useToggle()
+  const stylePersonData = isActive ? 'person__data active' : 'person__data'
+  const stylePersonAddress = isActive
+    ? 'person__address active'
+    : 'person__address'
   return (
     <div className="table-list__item">
-      <div className={personDataStyle} onClick={onChange}>
+      <div className={stylePersonData} onClick={toggleIsActive}>
         <div className="person__data__item">{person.id}</div>
         <div className="person__data__item">{person.firstName}</div>
         <div className="person__data__item">{person.lastName}</div>
         <div className="person__data__item">{person.email}</div>
         <div className="person__data__item">{person.phone}</div>
       </div>
-      <div className={personAddressStyle}>
-        Выбран пользователь
+      <div className={stylePersonAddress}>
+        User selected:
         <b>
           {person.firstName} {person.lastName}
         </b>
         <br />
-        Описание: {person.description}
+        Description: <em>{person.description}</em>
         <br />
-        Адрес проживания: <b>{person.address.streetAddress}</b>
+        Residence address: <b>{person.address.streetAddress}</b>
         <br />
-        Город: <b>{person.address.city}</b>
+        City: <b>{person.address.city}</b>
         <br />
-        Провинция/штат: <b>{person.address.state}</b>
+        Province / State: <b>{person.address.state}</b>
         <br />
-        Индекс: <b>{person.address.zip}</b>
+        Zip: <b>{person.address.zip}</b>
       </div>
     </div>
   )

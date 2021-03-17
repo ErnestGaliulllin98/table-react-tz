@@ -1,13 +1,11 @@
 import React from 'react'
-import TableHeader from '../TableHeader/TableHeader'
 import TableItem from '../TableItem/TableItem'
 import './TableList.css'
 
-function TableList(props) {
+const TableList = props => {
   return (
     <div className="table-list">
-      <TableHeader />
-      {props.data.map(person => {
+      {props.currentData.map(person => {
         return <TableItem person={person} key={person.id} />
       })}
     </div>
